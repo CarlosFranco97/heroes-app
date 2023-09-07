@@ -1,30 +1,34 @@
-import {Routes, Route } from 'react-router-dom'
-import {  HeroesRoutes } from '../heroes'
+import { HashRouter as Router } from "react-router-dom";
+import {Switch} from 'react-router-dom' 
+import { HeroesRoutes } from '../heroes'
 import { LoginPage } from '../auth'
 import { PrivateRouter } from './PrivateRouter'
 import { PublicRouter } from './PublicRouter'
 export const AppRouter = () => {
   return (
-  <>
-     <Routes>
-      <Route path='/login' element={
-        <PublicRouter>
-          <LoginPage />
-        </PublicRouter>
-      } />
+  
+     <Router>
+      <div>
+        <Switch>
 
-      {/* <Route path='login' element={<LoginPage />} /> */}
-     
-      <Route path='/*' element={
-       <PrivateRouter>
-        <HeroesRoutes/> 
-       </PrivateRouter>
-      }
-      />
+          <PublicRouter exact path="/login" component={ <LoginPage /> } >
+            <LoginPage />
+          </PublicRouter>
+        
+        {/* <Route path='login' element={<LoginPage />} /> */}
       
-      {/* <Route path='/*' element={<HeroesRoutes />} /> */}
-     </Routes>
-  </>
+          <PrivateRouter path="/" component={ <HeroesRoutes /> }>
+            <HeroesRoutes/> 
+          </PrivateRouter>
+        
+        {/* <Route path='/*' element={<HeroesRoutes />} /> */}
+        </Switch>
+      
+      </div>
+     
+     </Router>
+      
+  
     )
 }
 
