@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
         user: user
       }
     };
-
+  
     const [authState, dispatch] = useReducer(authReducer, {}, init)
 
  //Deseo hacer un login para identificar el usuario que esta ingresado en la pagina
@@ -41,8 +41,7 @@ export const AuthProvider = ({ children }) => {
         type: types.logout,
       };
       dispatch(action)
-    }
-
+    };
 
     return (
     <AuthContext.Provider value={{
