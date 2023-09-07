@@ -13,7 +13,7 @@ export const HeroPage = () => {
   const onNavigateReturn = () => {
     navigate(-1) 
   }
-  
+  const heroImageUrl = `./assets/heroes/${id}.jpg`; 
   //recomendado que estas clases de condiciones esten antes de la renderizacion del componente
   if(!hero) {
     return <Navigate to="/dc" />
@@ -24,7 +24,7 @@ export const HeroPage = () => {
     <div className="row mt-5">
       <div className="col-4">
         <img 
-        src={`./assets/heroes/${ id }.jpg`}
+        src={heroImageUrl}
         alt={hero.superhero} 
         className="img-thumbnail animate__animated animate__fadeInLeft"
         />
