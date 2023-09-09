@@ -4,10 +4,11 @@ import {HashRouter} from 'react-router-dom'
 import {HeroesApp} from './HeroesApp.jsx'
 import './styles.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-    <HeroesApp />
+      <HeroesApp />
     </HashRouter>
   </React.StrictMode>,
-)
+  document.getElementById('root')
+);
