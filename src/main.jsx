@@ -6,7 +6,7 @@ import './styles.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <HashRouter basename='/'>
       <HeroesApp />
     </HashRouter>
   </React.StrictMode>,
